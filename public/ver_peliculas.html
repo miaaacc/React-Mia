@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver películas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f0fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #5e2b97;
+    }
+    .pelicula {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 500px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .pelicula img {
+      display: block;
+      margin: 0 auto 10px;
+      border-radius: 8px;
+      max-width: 100%;
+    }
+    h3 {
+      margin: 0 0 10px;
+      color: #9b59b6;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      margin: 6px 0;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #5e2b97;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #9b59b6;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+    }
+    button:hover {
+      background: #7d3c98;
+    }
+    .msg {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+      color: #5e2b97;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de películas</h1>
+  <div id="listaPeliculas"></div>
+
+  <script>
+    async function cargarPeliculas() {
+      try {
+        const res = await fetch('/api/peliculas');
+        const peliculas = await res.json();
+
+        const lista = document.getElementById('listaPeliculas');
+        lista.innerHTML = '';
+
+        peliculas.forEach(p => {
+          const item = document.createElement('div');
+          item.className = 'pelicula';
+          item.innerHTML = `
+            <h2>${p.titulo}</h2>
+            <p>${p.descripcion}</p>
+            <p>⭐ ${p.calificacion}</p>
+            ${p.imagen ? `<img src="${p.imagen}" width="150">` : ''}
+            <hr>
+          `;
+          lista.appendChild(item);
+        });
+      } catch (error) {
+        console.error(error);
+        alert('Error al cargar películas');
+      }
+    }
+
+    cargarPeliculas();
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,124 @@
+/* ====== Estilos generales ====== */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #bf74eb, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Contenedor principal */
+.contenedor {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+}
+
+/* ====== Títulos ====== */
+h1, h2 {
+  text-align: center;
+  color: #5a4db8;
+  margin-bottom: 20px;
+}
+
+/* ====== Formularios ====== */
+form {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #5a4db8;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #7c6ee6;
+  outline: none;
+  box-shadow: 0 0 5px #b7aaff;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #7c6ee6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #5a4db8;
+}
+
+/* Botón secundario tipo "switch" */
+form button[type="button"] {
+  background-color: #6c757d;
+}
+
+form button[type="button"]:hover {
+  background-color: #545b62;
+}
+
+/* ====== Lista de películas ====== */
+.pelicula {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.pelicula h2 {
+  color: #9b59b6;
+  margin-top: 0;
+  text-align: center;
+}
+
+.pelicula p {
+  text-align: center;
+  margin: 6px 0;
+}
+
+.pelicula img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+/* Mensajes */
+.msg {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #5a4db8;
+}
